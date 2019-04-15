@@ -10,6 +10,11 @@ namespace MidiTest
     {
         static void Main(string[] args)
         {
+            Midi midi = new Midi();
+            Console.WriteLine(Midi.InputCount);
+            midi.Open(0);
+            midi.Start();
+            while (true) { };
         }
     }
 }
