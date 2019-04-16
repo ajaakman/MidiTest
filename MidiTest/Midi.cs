@@ -60,7 +60,16 @@ namespace MidiTest
             int dwParam1,
             int dwParam2)
         {
-            Console.WriteLine(dwParam1);
+            if (wMsg == 963)
+                if ((byte)(dwParam1 >> 0) == 144)
+                {
+                    //string num = Convert.ToString(dwParam1, 2).PadLeft(32, '0');
+
+                    if ((byte)(dwParam1 >> 16) != 0)
+                        Console.WriteLine("on {0}", ((byte)(dwParam1 >> 8)) - 60);
+                    else
+                        Console.WriteLine("off {0}", ((byte)(dwParam1 >> 8)) - 60);
+                }
         }
     }
 
